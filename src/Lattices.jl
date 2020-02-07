@@ -4,6 +4,7 @@ greet() = print("Hello World!")
 
 export SquareLattice, print_lat
 
+include("utils.jl")
 include("structures.jl")
 
 

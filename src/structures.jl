@@ -20,6 +20,8 @@ mutable struct SquareLattice
         lat.L = L
         lat.point_list = twoD_list
         lat.coordinates_next = [mod(i+1, 1:L) for i in 1:L]
+        # print("ALL spins one half? ",all_spin_one_half(lat.point_list))
+        @assert all_spin_one_half(lat.point_list)
         lat
     end
 
