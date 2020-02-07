@@ -35,7 +35,7 @@ Currently we only offer a limited number of methods to make use of the SquareLat
 
 ## Examples
 Here is an easy example showing how to use this package
-```
+```Julia
 using Lattices
 
 # create the spin matrix to serve as the input to SquareLattice
