@@ -33,6 +33,31 @@ Currently we only offer a limited number of methods to make use of the SquareLat
     
     `get_spins(lat::SquareLattice, position_list::Array{Tuple{Int, Int}, 1})` : get the spins value at specific positions in `position_list`.
 
+## Examples
+Here is an easy example showing how to use this package
+```
+using Lattices
+
+# create the spin matrix to serve as the input to SquareLattice
+a = rand([1, -1], 2, 2)
+# create the SquareLattice
+lat_a = SquareLattice(a)
+print_lat(lat_a)
+
+# flip some specific spin
+flip_pos = (1,1)
+flip!(lat_a2, (flip_pos))
+print_lat(lat_a)
+println("Is it correctly flipped? ",lat_a.point_list[flip_pos...]+lat_a2.point_list[flip_pos...]==0)
+
+# extract the spins at specific positions
+position_list = [(1,1), (1,2), (2,2), (2,1)]
+spins_list = get_spins(lat_a, position_list)
+println(spins_list)
+
+```
+
+
 ## Outlook
 In the future, we will consider offer a more abstract and specific structure for a generic lattice.
 
