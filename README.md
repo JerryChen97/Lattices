@@ -33,4 +33,7 @@ Currently we only offer a limited number of methods to make use of the SquareLat
     
     `get_spins(lat::SquareLattice, position_list::Array{Tuple{Int, Int}, 1})` : get the spins value at specific positions in `position_list`.
 
+## Outlook
+In the future, we will consider offer a more abstract and specific structure for a generic lattice.
 
+What's more, the statistics and arbitrary manipulation on spins is on the way.
