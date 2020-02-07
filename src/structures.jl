@@ -6,6 +6,8 @@ mutable struct SquareLattice
         lat=new(); 
         lat.L = L;
         lat.point_list = Array{Any, 2}(undef, L, L);
-        lat.coordinates_next = [mod(i+1, 1:L) for i in 1:L]
+        lat.coordinates_next = [mod(i+1, 1:L) for i in 1:L];
+        lat
     )
 end
+
