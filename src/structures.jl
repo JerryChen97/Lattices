@@ -22,5 +22,9 @@ mutable struct SquareLattice
         lat.coordinates_next = [mod(i+1, 1:L) for i in 1:L]
         lat
     end
+
+    function SumOver()
+        throw("NotImplemented")
+    end
 end
 
