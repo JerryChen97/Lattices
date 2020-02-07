@@ -36,6 +36,11 @@ function print_lat(lat:: SquareLattice)
     print("Square Lattice with length ", lat.L, "\nPoint List: ", lat.point_list, "\n")
 end
 
+function set_spin!(lat::SquareLattice, position::Tuple{Int, Int}, value::Int)
+    @assert (value==1 || value==-1)
+    lat.point_list[position...] = value
+end
+
 function get_spin(lat::SquareLattice, position::Tuple{Int, Int})
     lat.point_list[position...]
 end

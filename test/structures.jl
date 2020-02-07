@@ -28,7 +28,11 @@ using Lattices
     end
 
     @testset "Get spins" begin
-        # print_lat(lat_a)
+        position_list = [(1,1), (1,2), (2,2), (2,1)]
+        spins_list = get_spins(lat_a, position_list)
+        @test all(
+            [spins_list[i]==lat_a.point_list[position_list[i]...] for i in length(position_list)]
+            )
     end
 
 end
