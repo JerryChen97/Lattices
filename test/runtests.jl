@@ -1,1 +1,2 @@
-print("Hello")
+println("Hello")
+include("structures.jl")
