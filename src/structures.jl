@@ -2,6 +2,7 @@ mutable struct SquareLattice
     L::Int
     point_list
     coordinates_next
+
     # initialize an arbitrary SquareLattice with a given square length
     SquareLattice(L::Int) = (
         lat=new();
@@ -24,9 +25,30 @@ mutable struct SquareLattice
         @assert all_spin_one_half(lat.point_list)
         lat
     end
-
-    function SumOver()
-        throw("NotImplemented")
-    end
 end
 
+
+function SumOver()
+    throw("NotImplemented")
+end
+
+function print_lat(lat:: SquareLattice)
+    print("Square Lattice with length ", lat.L, "\nPoint List: ", lat.point_list, "\n")
+end
+
+function get_spin(lat::SquareLattice, position::Tuple{Int, Int})
+    lat.point_list[position...]
+end
+
+function get_spins(lat::SquareLattice, pos_list::Array{Tuple{Int, Int}, 1})
+    spin_list = Array{Int, 1}(undef, length(pos_list))
+    for i in 1:length(spin_list)
+        spin_list[i] = get_spin(lat, pos_list[i])
+    end
+    spin_list
+end
+
+function flip!(lat::SquareLattice, position::Tuple{Int, Int})
+    @assert length(position)==2
+    lat.point_list[position...] *= -1
+end
